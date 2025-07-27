@@ -114,6 +114,7 @@ body {
   color: #bbb;
 }
 
+/*testimonials*/
 .testimonial {
   background: #c271ff;
   color: white;
@@ -137,4 +138,69 @@ body {
   margin-top: 20px;
   font-size: 18px;
   font-weight: bold;
+}
+
+/*tutorials*/
+.tutorials {
+  padding: 80px 100px;
+  text-align: center;
+}
+
+.tutorials h2 {
+  font-size: 40px;
+  margin-bottom: 40px;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.card {
+  width: 22%;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.card-info {
+  padding: 15px;
+  text-align: left;
+}
+
+.card-info h3 {
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+
+.author {
+    color: #c271ff;
+}
+
+.author img {
+    width: 60px;
+    height: auto;
+}
+
+.card-info .author {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.card-info .meta {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  font-size: 12px;
+  color: #c271ff;
 }
