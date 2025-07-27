@@ -237,3 +237,33 @@ body {
   font-size: 30px;
   margin-bottom: 20px;
 }
+
+/* FAQ */
+.faq {
+  padding: 80px 100px;
+  text-align: center;
+}
+
+.faq h2 {
+    font-size: 40px;
+}
+
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.faq-item h3 {
+  font-size: 18px;
+  margin-bottom: 25px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.faq-item p {
+  text-align: left;
+  line-height: 1.5;
+  color:#71667a;
+}
