@@ -1,0 +1,142 @@
+
+/* ================== Variables and Global Styles ================== */
+:root {
+    --primary-color: #FF6565;
+    --text-color: #FFFFFF;
+    --background-color: #071629;
+    --max-width: 1000px;
+}
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    line-height: 1.6;
+}
+
+/* Note: You must add the @font-face rule for Spin Cycle OT here.
+   Example:
+   @font-face {
+       font-family: 'Spin Cycle OT';
+       src: url('fonts/Spin-Cycle-OT.otf') format('opentype');
+       font-weight: normal;
+       font-style: normal;
+   }
+*/
+
+/* ================== Header and Navigation ================== */
+.header {
+    /* Placeholder for the background image from images_.zip */
+    background-image: url('images/headphones_hero_1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    width: 100%;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.logo-img {
+    height: 35px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 600;
+    color: #faf7f7;
+    transition: color 0.3s ease;
+}
+
+/* Links hover/active styling */
+.nav-links a:hover,
+.nav-links a:active {
+    color: var(--primary-color);
+}
+
+.menu-toggle, .menu-icon {
+    display: none;
+}
+
+/* ================== Hero Section ================== */
+.hero-section {
+    flex-grow: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 150px;
+}
+
+.hero-content {
+    max-width: 700px;
+    padding-bottom: 20px;
+}
+
+.hero-content h1 {
+    font-family: 'Source sans pro', serif; /* Using the custom font for the title */
+    font-size: 30px;
+    font-weight: 999;
+    margin-bottom: 20px;
+}
+
+.hero-subtitle {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    ;
+}
+
+.call-to-action {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border: none;
+    padding: 15px 30px;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+/* Button hover/active styling */
+.call-to-action:hover,
+.call-to-action:active {
+    opacity: 0.9;
+}
+
+.hero-text {
+    font-size: 16px;
+    margin-top: 40px;
+}
+
+/* ================== Mobile Responsiveness (480px or less) ================== */
+@media (max-width: 480px) {
+    .nav {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 40px;
+    }
+}
