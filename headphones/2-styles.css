@@ -1,0 +1,420 @@
+/*
+ * 2-styles.css
+ *
+ * This file contains the CSS for the header/hero, "What we do...",
+ * and "Our results" sections. It follows the best practices of using a
+ * CSS reset, variables, and simple, generic selectors to make the code
+ * maintainable and reusable.
+ *
+ */
+
+/* ================== CSS Reset ================== */
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* ================== Variables and Global Styles ================== */
+:root {
+    --primary-color: #FF6565;
+    --text-color: #FFFFFF;
+    --background-color: #071629;
+    --secondary-background-color: #FFFFFF;
+    --secondary-text-color: #071629;
+    --max-width: 1000px;
+}
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    line-height: 1.6;
+}
+
+/* Custom Fonts from your provided style.css file */
+@font-face {
+  font-family: 'holberton_school-icon';
+  src:  url('fonts/holberton_school-icon.eot?sq4eq4');
+  src:  url('fonts/holberton_school-icon.eot?sq4eq4#iefix') format('embedded-opentype'),
+    url('fonts/holberton_school-icon.ttf?sq4eq4') format('truetype'),
+    url('fonts/holberton_school-icon.woff?sq4eq4') format('woff'),
+    url('fonts/holberton_school-icon.svg?sq4eq4#holberton_school-icon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="holberton_school-icon-"], [class*=" holberton_school-icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'holberton_school-icon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* The font-face for Spin Cycle OT still needs to be added here */
+/* Example:
+   @font-face {
+       font-family: 'Spin Cycle OT';
+       src: url('fonts/Spin-Cycle-OT.otf') format('opentype');
+       font-weight: normal;
+       font-style: normal;
+   }
+*/
+
+/* ================== Header and Navigation ================== */
+.header {
+    /* Placeholder for the background image from images_.zip */
+    background-image: url('images/headphones_hero_1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header-container, .section-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    width: 100%;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+}
+
+.logo-img {
+    height: 35px;
+}
+
+/* Default mobile styles */
+.nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: var(--background-color);
+    text-align: center;
+    padding: 20px 0;
+    z-index: 10;
+}
+
+.nav-links a {
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a:active {
+    color: var(--primary-color);
+}
+
+.menu-toggle {
+    display: none;
+}
+
+.menu-icon {
+    display: block;
+    cursor: pointer;
+    position: relative;
+    width: 25px;
+    height: 2px;
+    background-color: var(--text-color);
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.menu-icon::before,
+.menu-icon::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: var(--text-color);
+}
+
+.menu-icon::before {
+    top: -7px;
+}
+
+.menu-icon::after {
+    bottom: -7px;
+}
+
+.menu-toggle:checked ~ .nav-links {
+    display: flex;
+}
+
+/* ================== Hero Section ================== */
+.hero-section {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.hero-content {
+    max-width: 600px;
+    padding-bottom: 50px;
+}
+
+.hero-content h1 {
+    /* You still need to add the font-face rule for 'Spin Cycle OT' to see this font */
+    font-size: 56px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.hero-subtitle {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.call-to-action {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border: none;
+    padding: 15px 30px;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.call-to-action:hover,
+.call-to-action:active {
+    opacity: 0.9;
+}
+
+.hero-text {
+    font-size: 16px;
+    margin-top: 40px;
+}
+
+/* ================== "What we do..." section ================== */
+.what-we-do {
+    background-color: var(--secondary-background-color);
+    color: var(--secondary-text-color);
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.what-we-do .section-title {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.what-we-do .section-description {
+    max-width: 600px;
+    margin: 0 auto 50px auto;
+    font-size: 16px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.service-item {
+    padding: 20px;
+}
+
+.service-item span {
+    font-size: 60px;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    display: block;
+}
+
+.service-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.service-description {
+    font-size: 14px;
+}
+
+/* ================== "Our results" section ================== */
+.our-results {
+    /* Placeholder for the background image from images_.zip */
+    background-image: url('images/headphones_hero_2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: var(--text-color);
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.our-results .section-title {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.our-results .section-description {
+    max-width: 600px;
+    margin: 0 auto 50px auto;
+    font-size: 16px;
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.result-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative; /* This is crucial for positioning the pentagon */
+    padding: 20px;
+}
+
+.result-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1; /* Ensure the text is on top of the pentagon */
+}
+
+.result-number {
+    /* You still need to add the font-face rule for 'Spin Cycle OT' to see this font */
+    font-size: 46px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.result-text {
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+.pentagon-container {
+    position: absolute;
+    bottom: -15px; /* Adjust this value to control the vertical placement */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px; /* Adjust size as needed */
+    height: 150px; /* Adjust size as needed */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pentagon-img {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.pentagon-text {
+    position: relative;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* ================== Mobile Responsiveness (480px or less) ================== */
+@media (max-width: 480px) {
+    .nav {
+        justify-content: flex-start;
+    }
+    .logo {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .hero-content h1 {
+        font-size: 40px;
+    }
+    .what-we-do {
+        padding: 60px 20px;
+    }
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    .our-results {
+        padding: 60px 20px;
+    }
+    .results-grid {
+        grid-template-columns: 1fr;
+    }
+    .result-item {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Adding a separator for mobile view */
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+    }
+    .result-item:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+    }
+    .pentagon-container {
+        position: static; /* Let the pentagon sit normally in the flow on mobile */
+        transform: none;
+        margin-top: 20px;
+    }
+}
+
+/* ================== Desktop Version (above 480px) ================== */
+@media (min-width: 481px) {
+    /* On desktop, hide the menu icon and show the navigation links */
+    .menu-icon {
+        display: none;
+    }
+    .nav {
+        justify-content: space-between;
+    }
+    .nav-links {
+        display: flex;
+        position: static;
+        flex-direction: row;
+        gap: 30px;
+        background-color: transparent;
+        padding: 0;
+        flex-grow: 1;
+        justify-content: flex-end;
+    }
+    .logo {
+        position: static;
+        transform: none;
+    }
+}
