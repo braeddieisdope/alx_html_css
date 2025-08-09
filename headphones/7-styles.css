@@ -1,0 +1,559 @@
+/* ================== CSS Reset ================== */
+body, h1, h2, h3, p, ul, li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* ================== Variables and Global Styles ================== */
+:root {
+    --primary-color: #FF6565;
+    --text-color: #FFFFFF;
+    --background-color: #071629;
+    --secondary-background-color: #FFFFFF;
+    --secondary-text-color: #071629;
+    --max-width: 1000px;
+}
+
+body {
+    font-family: 'Source Sans Pro', sans-serif;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    line-height: 1.6;
+}
+
+/* Custom Fonts */
+@font-face {
+    font-family: 'holberton_school-icon';
+    src:  url('fonts/holberton_school-icon.eot?sq4eq4');
+    src:  url('fonts/holberton_school-icon.eot?sq4eq4#iefix') format('embedded-opentype'),
+        url('fonts/holberton_school-icon.ttf?sq4eq4') format('truetype'),
+        url('fonts/holberton_school-icon.woff?sq4eq4') format('woff'),
+        url('fonts/holberton_school-icon.svg?sq4eq4#holberton_school-icon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+[class^="holberton_school-icon-"], [class*=" holberton_school-icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'holberton_school-icon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ================== Header and Navigation ================== */
+.header {
+    background-image: url('images/headphones_hero_1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header-container, .section-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    width: 100%;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    padding-top: 40px;
+    position: relative;
+}
+
+.logo-img {
+    height: 35px;
+}
+
+/* Default mobile styles */
+.nav-links {
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: var(--background-color);
+    text-align: center;
+    padding: 20px 0;
+    z-index: 10;
+}
+
+.nav-links a {
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a:active {
+    color: var(--primary-color);
+}
+
+.menu-toggle {
+    display: none;
+}
+
+.menu-icon {
+    display: block;
+    cursor: pointer;
+    position: relative;
+    width: 25px;
+    height: 2px;
+    background-color: var(--text-color);
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.menu-icon::before,
+.menu-icon::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: var(--text-color);
+}
+
+.menu-icon::before {
+    top: -7px;
+}
+
+.menu-icon::after {
+    bottom: -7px;
+}
+
+.menu-toggle:checked ~ .nav-links {
+    display: flex;
+}
+
+/* ================== Hero Section ================== */
+.hero-section {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.hero-content {
+    max-width: 650px;
+    padding-bottom: 30px;
+    padding-top: 80px;
+}
+
+.hero-content h1 {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 28px;
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+
+.hero-subtitle {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.call-to-action {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border: none;
+    padding: 15px 30px;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.call-to-action:hover,
+.call-to-action:active {
+    opacity: 0.9;
+}
+
+.hero-text {
+    font-size: 16px;
+    margin-top: 40px;
+}
+
+/* ================== "What we do..." section ================== */
+.what-we-do {
+    background-color: var(--secondary-background-color);
+    color: var(--secondary-text-color);
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.what-we-do .section-title {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.what-we-do .section-description {
+    max-width: 600px;
+    margin: 0 auto 50px auto;
+    font-size: 16px;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+/* ----- START OF NEW ANIMATION CODE ----- */
+/* Smooth transitions for the service items */
+.service-item {
+    padding: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hover effect for the service item */
+.service-item:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+/* Hover effect for the icon inside the service item */
+.service-item span {
+    font-size: 60px;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    display: block;
+    transition: transform 0.3s ease-in-out;
+}
+
+.service-item:hover span {
+    transform: scale(1.15);
+}
+/* ----- END OF NEW ANIMATION CODE ----- */
+
+.service-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.service-description {
+    font-size: 14px;
+}
+
+/* ================== "Our results" section ================== */
+.our-results {
+    background-image: url('images/headphones_hero_2.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: var(--text-color);
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.our-results .section-title {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.our-results .section-description {
+    max-width: 600px;
+    margin: 0 auto 50px auto;
+    font-size: 16px;
+}
+
+.results-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+/* ----- START OF NEW ANIMATION CODE ----- */
+
+/* Define a keyframes animation for the pentagon pulse effect */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Result item base styles with transition for hover effect */
+.result-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding: 20px;
+    transition: transform 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+/* Hover effect for the result item */
+.result-item:hover {
+    transform: translateY(-10px);
+}
+
+/* Apply the continuous pulse animation to the pentagon container */
+.pentagon-container {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    animation: pulse 2s infinite; /* Apply the animation here */
+}
+/* ----- END OF NEW ANIMATION CODE ----- */
+
+.result-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1;
+}
+
+.result-number {
+    font-family: 'Spin Cycle OT', 'Source Sans Pro', sans-serif;
+    font-size: 46px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.result-text {
+    font-size: 11px;
+    text-transform: uppercase;
+}
+
+.pentagon-img {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.pentagon-text {
+    position: absolute;
+    font-family: 'Spin Cycle OT', 'Source Sans Pro', sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+/* ================== "Contact us" section ================== */
+.contact-us {
+    background-color: var(--secondary-background-color);
+    color: var(--secondary-text-color);
+    padding: 100px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-us .section-title {
+    font-size: 32px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.contact-form {
+    max-width: 400px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.form-label {
+    display: none;
+}
+
+.form-input, .form-textarea {
+    border: none;
+    border-bottom: 1px solid var(--secondary-text-color);
+    background-color: transparent;
+    padding: 10px 0;
+    font-size: 16px;
+    color: var(--secondary-text-color);
+    transition: border-color 0.3s ease;
+    width: 100%;
+}
+
+.form-input:focus, .form-textarea:focus {
+    outline: none;
+    border-bottom-color: var(--primary-color);
+}
+
+.form-textarea {
+    resize: vertical;
+}
+
+/* Override the general call-to-action button for this section */
+.contact-us .call-to-action {
+    color: var(--text-color);
+    background-color: var(--primary-color);
+    border: none;
+    padding: 15px 30px;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    width: 150px;
+    margin: 0 auto;
+}
+
+.contact-us .call-to-action:hover {
+    opacity: 0.9;
+}
+
+/* ================== Footer ================== */
+.footer {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    padding: 50px 20px;
+}
+
+.footer-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+
+.footer .logo-img {
+    height: 35px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.social-icons .fab {
+    color: var(--text-color);
+    font-size: 20px;
+}
+
+.social-icon-link:hover .fab {
+    color: var(--primary-color);
+}
+
+.copyright {
+    font-size: 12px;
+    color: #a3a2a2;
+    text-align: center;
+    margin-top: 80px;
+}
+
+/* ================== Mobile Responsiveness (480px or less) ================== */
+@media (max-width: 480px) {
+    .logo {
+        /* Pushing the logo to the center of the mobile nav bar */
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .hero-content h1 {
+        font-size: 40px;
+    }
+    .what-we-do {
+        padding: 60px 20px;
+    }
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+    .our-results {
+        padding: 60px 20px;
+    }
+    .results-grid {
+        grid-template-columns: 1fr;
+    }
+    .result-item {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.2); /* Adding a separator for mobile view */
+        padding-bottom: 20px;
+        margin-bottom: 20px;
+    }
+    .result-item:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+    }
+    .pentagon-container {
+        position: static; /* Let the pentagon sit normally in the flow on mobile */
+        transform: none;
+        margin-top: 20px;
+    }
+}
+
+/* ================== Desktop Version (above 480px) ================== */
+@media (min-width: 481px) {
+    .menu-icon {
+        display: none;
+    }
+
+    .nav-links {
+        display: flex;
+        position: static;
+        flex-direction: row;
+        gap: 30px;
+        background-color: transparent;
+        padding: 0;
+        flex-grow: 1;
+        justify-content: flex-end;
+    }
+
+    .logo-img {
+        position: static;
+        transform: none;
+    }
+
+    .footer-container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 0;
+    }
+}
